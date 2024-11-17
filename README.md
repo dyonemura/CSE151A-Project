@@ -15,3 +15,9 @@ This project will explore the potential for predicting a user’s rating of a re
   - Split the dataset into training and testing sets using an 80:20 ratio to evaluate model performance and avoid overfitting.
 ### Jupyter Notebook
 https://colab.research.google.com/drive/1B-XxFEforvRwHhIIadXGSZB1HqIw5l3e?usp=sharing
+
+# Milestone 3 Work
+
+
+
+Conclusion: Our conclusion of the first model is that more features will need to be added to the model to increase its accuracy. While using the TF-IDF of the words in a review gives better predictions than random gusses, it is still not enough to be considered an accurate model. Features such as text length or including other features of the review such as how the comment was rate by others could add more complexity and accuracy to the model. Right now, it is too simple. 
