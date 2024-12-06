@@ -1,9 +1,22 @@
 # CSE151A-Project
 ---
-### Introduction:
+## Introduction
 This project will explore the potential for predicting a user’s rating of a recipe based on textual analysis of their comment as well as their potential history of comments and ratings on other recipes. We chose the problem of predicting how a given user will rate a recipe as the recommender system we are building would give insight into the qualities that are both desired or unwanted in specific recipes. 
 
 Furthermore, a successful model would allow for improved recipe recommendations based off of a user’s past reviews. We will be using methods such as logistic regression to perform sentiment analysis on text to get the general sentiment of the text, as well as utilizing other features of the data such as the most important words or length of the text, we will fit these features on a regression model to determine if these features are an accurate portrayal of a user’s rating on a recipe. 
+
+---
+## Methods
+
+### Data Exploration:
+Exploring a single user in the dataset:
+- From the features available for each user, we selected a user's number of replies, recipes thumbed up/down, stars given, and comment score to explore in our analysis.
+  - A correlation mapping between these user features:
+    ![correlation map](./figures/correlation_map.png)
+  - Pairplot of the features:
+    ![pairplot](./figures/pairplot.png)
+
+Exploring a recipe from the dataset:
 
 ### Data Preprocessing:
 - Missing Values
@@ -19,9 +32,6 @@ Furthermore, a successful model would allow for improved recipe recommendations 
   - Split the dataset into training and testing sets using an 80:20 ratio to evaluate model performance and avoid overfitting.
 ### Jupyter Notebook
 https://colab.research.google.com/drive/1B-XxFEforvRwHhIIadXGSZB1HqIw5l3e?usp=sharing  
-
----
-# Methods
 
 ## Model One
 
