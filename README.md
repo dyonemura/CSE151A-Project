@@ -67,7 +67,9 @@ By reducing model complexity, we aimed to make the model more generalizable; how
 ### - Future Models 
 
 In addition to Random Forest, which was mentioned previously, we may want to consider an XGBoost model. XGBoost is well-suited for handling data with high dimensionality, such as our TF-IDF feature vectors, and is designed to efficiently manage sparse data. It also has the ability to address class imbalance through built-in regularizaion techniques, making it a promising candidate for improving classification performance while potentially mitigating overfitting.
-
+# Results
+---
+# Discussion
 ---
 # Conclusion
 ## Model One
@@ -75,3 +77,6 @@ Overall, our first model served as a good launch point for our investigation of 
 
 ## Model Two
 Our second model, the Multinomial Naive Bayes classifier, demonstrated a slightly decreased performance compared to the SGDClassifier, with a testing accuracy of 64% vs. 67%. Additionally, the large gap between training and testing accuracies (24%) persists, indicating that overfitting remains a key challenge despite taking steps to reduce feature dimensionality. The hyperparameter tuning we performed confirmed that we has found the configuration that yielded the best performance, suggesting that further improvements will not come from additional tuning. Instead, some options to improve performance include employing more robust cross validation techniques (eg. k-fold) to help prevent overfitting to the training data, exploring other types of regularization techniques, and possibly exploring other methods for addressing class imbalance.
+---
+# Statement of Collaboration
+David Yonemura: Coder: Coded the exploratory data analysis, only on the entire dataset and not on the specific users and recipes. Also coded the text clean up, TF-IDF, oversampling, and SGDClassifier code.
