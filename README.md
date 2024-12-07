@@ -17,6 +17,10 @@ Exploring a single user in the dataset:
     ![pairplot](./figures/pairplot.png)
 
 Exploring a recipe from the dataset:
+  - After extracting the lengths of the reviews for a recipe, we can preliminarily visualize whether there is a relationship between review length and its given score. 
+  ![stars_textlen](./figures/stars_textlen.png)
+  - From the plot, we found that there exists some correlation between the length of a review's text, and the star rating given by a user.
+    - This is an example of how we could extract information from the review text feature and then use it to predict recipe rating.
 
 ### Data Preprocessing:
 - Missing Values
