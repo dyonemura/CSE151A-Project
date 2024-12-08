@@ -74,7 +74,9 @@ From exploring a single recipe:
     - From the plot, we found that there exists some correlation between the length of a review's text, and the star rating given, particularly shown between a longer review and a five star rating.
    
 ### Data Preprocessing
-Through the manual cleaning we performed after applying TF-IDF, we were able to significantly reduce the number of unspecified words from 8459 to 4937.
+Through the manual cleaning we performed after applying TF-IDF, we were able to significantly reduce the number of unspecified words from 8459 to 4937. Applying SMOTE to our data resulted in balanced classes, as evidenced by the counts of each target class shown before and after resampling:
+
+  ![resampling](./figures/resampling.png)
 
 
 
@@ -82,7 +84,12 @@ Through the manual cleaning we performed after applying TF-IDF, we were able to 
 Our first model yielded a 84% accuracy on the training set and a 67% accuracy on the testing set. As there are five different outcomes for this classifier (1-5 stars), having a testing accuracy of 67% is well above the random threshold of 20%. Precision, recall, and f1-score were all the highest for the 5 star observations, with 88%, 78%, and 83% respectively. All other results for classes 1-4 were far poorer, in the 10-40% range. 
 
 ### Model Two
-Training with an intial alpha value of 0.1 yielded a training accuracy of 88% and a testing accuracy of 63%. Retraining the model with the parameters found by grid search—alpha=0.0001 and fit_prior=False—did not affect the training accuracy, but it did bump the testing accuracy up to 64%. Likewise, the manual tuning did not return a more optimal alpha value. By graphing these results, we were able to conclude that 64% was our threshold in regards to hyperparameter tuning.  These results mark a slight decrease in testing accuracy compared to the first model, with a similarly large gap between the training and testing results.
+Training with an intial alpha value of 0.1 yielded a training accuracy of 88% and a testing accuracy of 63%. Retraining the model with the parameters found by grid search—alpha=0.0001 and fit_prior=False—did not affect the training accuracy, but it did bump the testing accuracy up to 64%. Likewise, the manual tuning did not return a more optimal alpha value. By graphing these results, we were able to conclude that 64% was our threshold in regards to hyperparameter tuning:
+
+  ![param tuning graph](./figures/alpha_tuning.png)
+
+
+These results mark a slight decrease in testing accuracy compared to the first model, with a similarly large gap between the training and testing results.
 
 
 ---
