@@ -121,3 +121,4 @@ This project provided significant insights into the challenges of text-based rat
 - Jared Jose: Coding: Generated links between users/recipes for possible recommender system, aided in speed-up snippets of data cleaning, TF-IDF generation (optimization), oversampling, MNB Classifier code. Wrote write-up for Milestone 3.
 - Allison Lane: Performed the data exploration task of looking at a single user - Helped with manually cleaning the text data - Milestone 4 writeup
 - YungChieh Yang: Milestone1 writeup, helped with manually cleaning the text data, help in improving test accuracy for the MNB model
+- Efrain Lemus: Assisted with the manual cleaning of the text data before performing TF-IDF. Helped with hyperparameter tuning of the MNB classifer using cross-validation/grid search.
