@@ -97,20 +97,8 @@ After our selection of TF-IDF as our primary feature to be utilized in our model
 
 ## Model One
 
-### - Analysis
-
-
-### - Fitting Graph Location
-
-
-### - Future Models
-
 ## Model Two
-
-### - Analysis
-
-
-### - Fitting Graph Location
+The second model that we utilized in our pursuits was a Multinomial Naive Bayes classifier. We selected this model because Naive Bayes classifiers tend to perform extremely well when given text input. Even more specifically, Naive Bayes classifiers tend to be extremely receptive to TF-IDF values. Therefore, we thought it was a logical next step when it came to selecting another model to apply to our dataset. When given the same inputs as our SGD Classifier, the Naive Bayes model appeared to perform worse than the SGD Classifier. This logically makes sense, as one of the conclusions we reached when evaluating our SGD Classifier was that we needed to simplify our model. From a purely objective standpoint, the SGD Classifier is simpler than a Multinomial Naive Bayes. Looking back, we made the decision to utilize a Multinomial Naives Model before we reevaluated our generation of TF-IDF values. After significantly simplifying the complexity of our input vector through the utilizing of limiting features, we heavily simplified our model outright. Therefore, it makes sense that this simplification increased the efficacy of our first model versus our follow-up. Looking back, it would have been a good idea to first reduce the model complexity via input feature reduction, then evaluate our first model on the fitting graph, and then finally move forward when looking at whether to add or remove complexity from our process. Despite choosing the MNB Classifier model without following this process, we still believe that it was a worthwhile model to test as Naive Bayes works well with text feature data and is also a relatively simple machine learning model. Through our utilization of this model, we did find some levels of success. The second model saw similar, albeit slightly worse, results to our first model. Even with the utilization of a hyperparameter search, we were unable to generate a MNB Classifier that performed better than the SGD Classifier. Perchance, we could have tried utilizing a broader range of hyperparameters and values for said hyperparameters. Despite all the above, it was extremely evident that our model was still tending to overfit our input data. With such a significant disparity between the training and test accuracies, the model fitting graph still suggests that we must simplify the model even further! 
 
 
 ### - Future Models 
