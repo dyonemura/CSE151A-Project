@@ -11,19 +11,11 @@ We chose the problem of predicting how a given user will rate a recipe, given th
 ## Methods
 
 ### Data Exploration:
-Exploring a single user in the dataset:
-- From the features available for each user, we selected a user's number of replies, recipes thumbed up/down, stars given, and comment score to explore in our analysis.
-  - A correlation mapping between these user features:
-    ![correlation map](./figures/correlation_map.png)
-  - Pairplot of the features:
-    ![pairplot](./figures/pairplot.png)
+We explored the data of a single user to see whether any useful information could be extracted from this alone. In other words, we wanted to see if it was possible to predict the rating left by a particular user based on their history of reviews and comment stats. For this selected user, we generated a correlation matrix and a pairplot with the following features: number of replies, number of thumbs up/down, best comment score, and number of stars given.
 
-Exploring a recipe from the dataset:
-  - After extracting the lengths of the reviews for a recipe, we can preliminarily visualize whether there is a relationship between review length and its given score. 
-  ![stars_textlen](./figures/stars_textlen.png)
-  - From the plot, we found that there exists some correlation between the length of a review's text, and the star rating given by a user.
-    - This is an example of how we could extract information from the review text feature and then use it to predict recipe rating.
+Next, we explored the possibility of extracting information from a single recipe and the users who reviewed it. We chose one recipe and looked at the distribution of ratings as well as review text length, and explored whether there was a relationship between review length and rating given for that recipe.
 
+  
 ### Data Preprocessing:
 - Missing Values
   - Drop the two missing text entries from the dataset to maintain data consistency.
@@ -66,8 +58,31 @@ By reducing model complexity, we aimed to make the model more generalizable; how
 
 ### - Future Models 
 
-In addition to Random Forest, which was mentioned previously, we may want to consider an XGBoost model. XGBoost is well-suited for handling data with high dimensionality, such as our TF-IDF feature vectors, and is designed to efficiently manage sparse data. It also has the ability to address class imbalance through built-in regularizaion techniques, making it a promising candidate for improving classification performance while potentially mitigating overfitting.
+In addition to Random Forest, which was mentioned previously, we may want to consider an XGBoost model. XGBoost is well-suited for handling data with high dimensionality, such as our TF-IDF feature vectors, and is designed to efficiently manage sparse data. It also has the ability to address class imbalance through built-in regularizaion techniques, making it a promising candidate for improving classification performance while potentially mitigating overfitting.  
+
+---
 # Results
+### Data Exploration  
+From exploring a single user:
+  - Correlation matrix showing relationship between user-level features and number of stars:
+    
+    ![correlation map](./figures/correlation_map.png)
+    - None of these features showed strong correlations to number of stars. The highest were number of thumbs down and best score, both with correlations of 0.3.
+      
+  - Pairplot of the same features:
+    
+    ![pairplot](./figures/pairplot.png)
+    - Our data for this particular user is too sparse to glean any meaningful information from the pairplot.
+   
+From exploring a single recipe:
+  - Scatterplot showing relationship between review text length and rating for one recipr:
+ 
+    ![stars_textlen](./figures/stars_textlen.png)
+    
+    - From the plot, we found that there exists some correlation between the length of a review's text, and the star rating given, particularly shown between a longer review and a five star rating.
+   
+
+
 ---
 # Discussion
 ---
@@ -75,8 +90,9 @@ In addition to Random Forest, which was mentioned previously, we may want to con
 ## Model One
 Overall, our first model served as a good launch point for our investigation of this dataset. The SGDClassifier yielded a relatively low training error and a *comparatively* higher testing error! This indicates that there is significant room to grow in terms of changing our features and underlying model in order to venture closer to the ideal level of model complexity which would yield a more generalizable model. Based off of these error rates, we can conclude that utilization of the TF-IDF of words yields a better prediction than randomly selecting a rating; however, there is still significant room to improve and increase the model's overall efficacy. More specifically, we believe that the model could be improved by cleaning the text data even more thoroughly to help increase the accuracy of the TF-IDF values. This would help to reduce the complexity of our model by decreasing the number of features we are inputting. Furthermore, we are seeking to explore the inclusion of other attributes of the text as features in our model. Whether this surrounds something simple, such as review length, or something more complicated, such as sentiment, we hope that pulling more information from the review text column will help to improve our model!   
 
-## Model Two
-Our second model, the Multinomial Naive Bayes classifier, demonstrated a slightly decreased performance compared to the SGDClassifier, with a testing accuracy of 64% vs. 67%. Additionally, the large gap between training and testing accuracies (24%) persists, indicating that overfitting remains a key challenge despite taking steps to reduce feature dimensionality. The hyperparameter tuning we performed confirmed that we has found the configuration that yielded the best performance, suggesting that further improvements will not come from additional tuning. Instead, some options to improve performance include employing more robust cross validation techniques (eg. k-fold) to help prevent overfitting to the training data, exploring other types of regularization techniques, and possibly exploring other methods for addressing class imbalance.
+## Model Two   
+Our second model, the Multinomial Naive Bayes classifier, demonstrated a slightly decreased performance compared to the SGDClassifier, with a testing accuracy of 64% vs. 67%. Additionally, the large gap between training and testing accuracies (24%) persists, indicating that overfitting remains a key challenge despite taking steps to reduce feature dimensionality. The hyperparameter tuning we performed confirmed that we has found the configuration that yielded the best performance, suggesting that further improvements will not come from additional tuning. Instead, some options to improve performance include employing more robust cross validation techniques (eg. k-fold) to help prevent overfitting to the training data, exploring other types of regularization techniques, and possibly exploring other methods for addressing class imbalance.  
+
 ---
 # Statement of Collaboration
 David Yonemura: Coder: Coded the exploratory data analysis, only on the entire dataset and not on the specific users and recipes. Also coded the text clean up, TF-IDF, oversampling, and SGDClassifier code.
