@@ -83,6 +83,38 @@ From exploring a single recipe:
 
 ---
 # Discussion
+### Data Exploration:
+The initial data exploration step largely surrounded getting an idea of the distribution of metrics when compared to overall recipe rating. As we knew that our overall goal for the project was to somehow leverage data in order to provide a rating prediction, our greatest unknown was seeing if there were any preliminary correlations. Through our generation of a correlation plot, we intended to investigate if any of the given quantitative features in the dataset would serve to be good predictors of overall rating. From the correlation plot, we saw that there was very low correlations between these features. This indicated to us that we needed to turn towards review text content in order to generate features or metrics which could be possibly used in order to accurately predict recipe rating. Furthermore, our initial exploration highlighted that our data was extremely skewed towards reviews with a 5/5 rating. This would be important later for our sampling methods when testing models. In order to ensure that our models did not pick up on the skewed data and blindly pick the rating with largest proportion, it was important to utilize oversampling. 
+
+After deciding that it was important to have a strong grasp over the text element of our dataset, we then took a step back and began looking at the connections recipe->users and user->recipes connections. This exploration was done in order to determine the feasability of a recommender system. By understanding the amount of user reviews listed per recipe, recipe reviews done per user, and if there was overlap between these sets, we hoped to be able to potentially similar user rankings in our calculations of rating. Through our exploration, we found that the dataset was not distributed evenly. On one hand there were a fair number of power users who left copious amounts of recipe reviews. On the other hand, the majority of users left one-off reviews. This large disparity within the dataset threw a major wrench in our plan to incorporate a similar user's rating into a prediction for a given review based on a specific reviewer. After this exploration we began to delve deep into the different metrics that we could extract solely from within a single observation's text feature. 
+
+In the exploration of our dataset's text features, we began with the simple metric of the text length of the given review. From a preliminary plot, it appeared that most reviews tended to be roughly around the same length. Although the graph does outwardly depict that reviews with a higher length only yield 5/5 star reviews, we must remember that the vast majority of reviews in the dataset were rated 5/5 stars. Therefore, based off of this skew in data, it is not fair to generalize preliminarily that review length has a strong correlation to review rating. Perchance in the future it would have been a worthwhile exercise to randomly sample even numbers of reviews and then compare the yielded text lengths to get a more fair comparison. 
+
+Since the utilization of review length on its own did not seem like the most promising feature to utilize, we began exploring more advanced metrics! The one we settled on was TF-IDF (term frequency - inverse document frequency). TF-IDF utilizes both the frequency of a word within a review text and the frequency of said word across the entire corupus of reviews. We believed that this metric would be invaluable in the pursuit of predicting a review rating as we thought could help to uncover words with strong connotations. More specifically, we wanted to see if there were words that were outside of the regular "bad", "incredible", "delicious', etc. that could be utilized as markers for a reviews overall rating. In the end, we determined that utilizing TF-IDF was the best course of action in terms of getting a metric to feed into a model. Our goal was to utilize the generation of TF-IDF values and then attempt to incorporate more features if necessary. The largest obstacle in terms of generating these features was that it was highly dependent on our data being extremely clean. This small tidbit led to an extremely large and time-consuming cleaning process.
+
+### Data Preprocessing:
+After our selection of TF-IDF as our primary feature to be utilized in our models, we embarked on the process of cleaning the text feature so it could accurately generate word frequencies. The removal of punctuation and capitalization was straightforward. The real problem came in duplicate words and misspellings. For example, "broccoli" would be incorrectly counted differently than the presence of "brocoli" based off of our process for generating the TF-IDF values. This meant we had to find a way to spell-check our dataset. We attempted to utilize the spellchecker and fuzzywuzzy python libraries to help expedite this process. Unfortunately for us, the spellchecker only did so well and still left a daunting amount of data which needed to be manually cleaned. We performed this manual cleaning on the data by either entering a word into corrections dictionary or adding it to a to-be-cleaned list. This process, although not difficult, was extremely time consuming. Furthermore, looking back it appeared that some of these typos or one-off words seemed to only occur a singular time in the dataset. If we could redo this section of the project, it would have been a good idea to weigh the benefit or drawback of meing as meticulous with our cleaning as we were. Furthermore, the granularity of our cleaning was made slightly less important once we began experimenting with the hyperparamters of the TF-IDF Vectorizer which generated our TF-IDF values. By limiting the number of features or only selecting words which were in X% of the corpus documents, we were able to cull some of the more obscure or unclean words from the dataset. Although we do agree that our cleaning of the data was a necessary step, we think that we could have been a bit more effective in terms of how we completed it and the granularity of our cleaning. 
+
+## Model One
+
+### - Analysis
+
+
+### - Fitting Graph Location
+
+
+### - Future Models
+
+## Model Two
+
+### - Analysis
+
+
+### - Fitting Graph Location
+
+
+### - Future Models 
+
 ---
 # Conclusion
 ## Model One
