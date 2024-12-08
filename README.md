@@ -20,25 +20,21 @@ Next, we explored the possibility of extracting information from a single recipe
 
   
 ### Data Preprocessing:
-- Missing Values
-  - Drop the two missing text entries from the dataset to maintain data consistency.
-- Text Tokenization and Cleaning
-  - Remove special characters, numbers, and punctuation from the text attribute.
-  - Convert all text to lowercase, tokenize the text into individual words, and stored the tokenized text into a list for futher analysis.
-- Encoding
-  - Encode the categorical attributes, recipe_name and user_name, using one hot encoding for the use in the model. 
-- Scaling
-  - Scale the numerical attributes, reply_count, thumbs up/down, best_score, and user_reputation, using normalization to ensure range.
-- Splitting Data
-  - Split the dataset into training and testing sets using an 80:20 ratio to evaluate model performance and avoid overfitting.
-
-In order to deal with the skew in our dataset towards five-star reviews, we utilized SMOTE to oversample our data and give a more uniform sample sapce to operate on.
+We performed the following preprocessing steps:
+- Dropped the two missing text entries from the dataset to maintain data consistency.
+- Encoded categorical attributes, recipe_name and user_name, using one hot encoding for the use in the model. 
+- Scaled the numerical attributes, reply_count, thumbs up/down, best_score, and user_reputation, using normalization to ensure range.
+- Removed special characters, numbers, and punctuation from the text attribute.
+- Converted all text to lowercase, tokenize the text into individual words, and stored the tokenized text into a list for futher analysis.
+- Applyed TF-IDF feature extraction
+- Performed manual cleaning of the text features to address unknown or unspecified words/typos
+- Split the dataset into training and testing sets using an 80:20 ratio to evaluate model performance and avoid overfitting.
+- Performed SMOTE oversampling on the training set to address class imbalance
 
 
 ### Model One
 
 For our first model we utilized a SGDClassifier, which is a linear classifier that utilizes stochastic gradient descent. This model takes in the td-idf features of the processed text data and outputs a prediction of the stars (rating) category for the given review. Our model was trained with the default parameters specified by the sklearn function.
-
 
 
 ### Model Two
@@ -107,7 +103,6 @@ THe first model that we utilized in our pursuits was an SGDClassifier, aimed to 
 The second model that we utilized in our pursuits was a Multinomial Naive Bayes classifier. We selected this model because Naive Bayes classifiers tend to perform extremely well when given text input. Even more specifically, Naive Bayes classifiers tend to be extremely receptive to TF-IDF values. Therefore, we thought it was a logical next step when it came to selecting another model to apply to our dataset. When given the same inputs as our SGD Classifier, the Naive Bayes model appeared to perform worse than the SGD Classifier. This logically makes sense, as one of the conclusions we reached when evaluating our SGD Classifier was that we needed to simplify our model. From a purely objective standpoint, the SGD Classifier is simpler than a Multinomial Naive Bayes. Looking back, we made the decision to utilize a Multinomial Naives Model before we reevaluated our generation of TF-IDF values. After significantly simplifying the complexity of our input vector through the utilizing of limiting features, we heavily simplified our model outright. Therefore, it makes sense that this simplification increased the efficacy of our first model versus our follow-up. Looking back, it would have been a good idea to first reduce the model complexity via input feature reduction, then evaluate our first model on the fitting graph, and then finally move forward when looking at whether to add or remove complexity from our process. Despite choosing the MNB Classifier model without following this process, we still believe that it was a worthwhile model to test as Naive Bayes works well with text feature data and is also a relatively simple machine learning model. Through our utilization of this model, we did find some levels of success. The second model saw similar, albeit slightly worse, results to our first model. Even with the utilization of a hyperparameter search, we were unable to generate a MNB Classifier that performed better than the SGD Classifier. Perchance, we could have tried utilizing a broader range of hyperparameters and values for said hyperparameters. Despite all the above, it was extremely evident that our model was still tending to overfit our input data. With such a significant disparity between the training and test accuracies, the model fitting graph still suggests that we must simplify the model even further! 
 
 
-### - Future Models 
 
 ---
 # Conclusion
@@ -122,4 +117,5 @@ Our second model, the Multinomial Naive Bayes classifier, demonstrated a slightl
 ---
 # Statement of Collaboration
 - David Yonemura: Coder: Coded the exploratory data analysis, only on the entire dataset and not on the specific users and recipes. Also coded the text clean up, TF-IDF, oversampling, and SGDClassifier code.
-- Jared Jose: Coding: Generated links between users/recipes for possible recommender system, aided in speed-up snippets of data cleaning, TF-IDF generation (optimization), oversampling, MNB Classifier code. Wrote write-up for Milestone 3. 
+- Jared Jose: Coding: Generated links between users/recipes for possible recommender system, aided in speed-up snippets of data cleaning, TF-IDF generation (optimization), oversampling, MNB Classifier code. Wrote write-up for Milestone 3.
+- Allison Lane: Performed the data exploration task of looking at a single user - Helped with manually cleaning the text data - Milestone 4 writeup
