@@ -2,6 +2,11 @@
 
 [Link to notebook](https://colab.research.google.com/drive/1B-XxFEforvRwHhIIadXGSZB1HqIw5l3e?usp=sharing)
 
+# Prior Submissions
+- [Milestone 2](https://github.com/dyonemura/CSE151A-Project/tree/Milestone2)
+- [Milestone 3](https://github.com/dyonemura/CSE151A-Project/tree/Milestone3)
+- [Milestone 4](https://github.com/dyonemura/CSE151A-Project/tree/Milestone4)
+
 ---
 ## Introduction
 Through the internet, people from all across the world are able to connect with each other in an instant. This has allowed people from all walks of life to share and receive content, and this explosion of user-generated content has given rise to the importance of an individual's opinion. This can most notably be seen through online shopping. It is extremely rare that someone buys a product without first checking the reviews left by those who have purchased the product. This is because reviews are the lifeblood of a product. Products plagued with bad reviews are an excellent deterrent for others to purchasing those specific products, while products praised with good reviews will most likely bring in more people to buy it since it has been proven to be a good product. This is the foundation for a recommender system or a system that uses an algorithm to recommend users products that they are likely to purchase, and this type of system is important since it brings benefits to both the user and company. For the user, a well built recommender system allows for a user to receive products relevant to them without the effort of having to look through specific products to find the one they need, nor spend too much time sifting through poorly rated products. For the company, a good recommender system can massively improve revenue and keep users on their platform. With this in mind, our group wanted to attempt to make a recommender system, not based on products, but on food recipes.
