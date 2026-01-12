@@ -1,11 +1,6 @@
 # CSE151A-Project
 
-[Link to notebook](https://colab.research.google.com/drive/1B-XxFEforvRwHhIIadXGSZB1HqIw5l3e?usp=sharing)
-
-# Prior Submissions
-- [Milestone 2](https://github.com/dyonemura/CSE151A-Project/tree/Milestone2)
-- [Milestone 3](https://github.com/dyonemura/CSE151A-Project/tree/Milestone3)
-- [Milestone 4](https://github.com/dyonemura/CSE151A-Project/tree/Milestone4)
+[Link to notebook](https://github.com/dyonemura/CSE151A-Project/blob/main/CSE151A_Project.ipynb)
 
 ---
 ## Introduction
